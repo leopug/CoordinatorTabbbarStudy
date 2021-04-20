@@ -67,7 +67,7 @@ class Home2ViewController: UIViewController, HomeBaseCoordinated {
     }
     
     @objc private func goToFavoriteTab() {
-        coordinator?.parentCoordinator?.resetToRoot()
+        coordinator?.parentCoordinator?.moveTo(flow: .Favorites)
     }
     
     @objc private func goToDeepViewInFavoriteTab() {

@@ -8,6 +8,6 @@
 import UIKit
 
 protocol OrdersBaseCoordinator: Coordinator {
-    @discardableResult func goToOrder2Screen( ) -> Self
-    @discardableResult func goToOrder3Screen() -> Self
+    @discardableResult func goToOrder2Screen(animated: Bool ) -> Self
+    @discardableResult func goToOrder3Screen(animated: Bool) -> Self
 }

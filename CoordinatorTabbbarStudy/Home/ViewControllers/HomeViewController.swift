@@ -48,7 +48,6 @@ class HomeViewController: UIViewController, HomeBaseCoordinated {
     }
     
     @objc private func goToHome2() {
-        coordinator?.goToHome2Screen()
+        coordinator?.goToHome2ScreenWith(title: "Top Title")
     }
-    
 }

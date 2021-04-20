@@ -27,9 +27,14 @@ class HomeCoordinator: HomeBaseCoordinator {
         return rootViewController
     }
     
+    func goToHome2ScreenWith(title: String) {
+        let home2ViewController = Home2ViewController(coordinator: self)
+        home2ViewController.title = title
+        navigationRootViewController?.pushViewController(home2ViewController, animated: true)
+
+    }
+    
     func goToHome2Screen() {
-                
-        (rootViewController as? UINavigationController)?.pushViewController(Home2ViewController(coordinator: self), animated: true)
     }
     
     func goToFavoritesFlow() {
@@ -39,7 +44,10 @@ class HomeCoordinator: HomeBaseCoordinator {
     func goToDeepViewInFavoriteTab() {
         parentCoordinator?.moveTo(flow: .Favorites)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.1) { [weak self] in
-            self?.parentCoordinator?.ordersCoordinator.resetToRoot().goToOrder2Screen().goToOrder3Screen()
+            self?.parentCoordinator?.ordersCoordinator
+                .resetToRoot()
+                .goToOrder2Screen(animated: true)
+                .goToOrder3Screen(animated: true)
         }
     }
 }

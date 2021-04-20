@@ -9,7 +9,7 @@ import UIKit
 
 
 protocol HomeBaseCoordinator: Coordinator {
-    func goToHome2Screen()
+    func goToHome2ScreenWith(title: String)
     func goToFavoritesFlow()
     func goToDeepViewInFavoriteTab()
 }

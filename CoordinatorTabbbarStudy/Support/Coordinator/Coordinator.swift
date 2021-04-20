@@ -25,7 +25,6 @@ extension Coordinator {
     }
     
     func resetToRoot() -> Self {
-        print("print do reset to root original")
         navigationRootViewController?.popToRootViewController(animated: false)
         return self
     }

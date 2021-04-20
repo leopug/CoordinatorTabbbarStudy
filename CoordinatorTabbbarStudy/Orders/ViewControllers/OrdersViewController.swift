@@ -47,6 +47,6 @@ class OrdersViewController: UIViewController, OrdersBaseCoordinated {
     }
     
     @objc private func goToHome2() {
-        coordinator?.goToOrder2Screen()
+        coordinator?.goToOrder2Screen(animated: true)
     }
 }

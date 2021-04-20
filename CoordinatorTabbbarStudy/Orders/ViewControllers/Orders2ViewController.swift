@@ -47,6 +47,6 @@ class Orders2ViewController: UIViewController, OrdersBaseCoordinated {
     }
     
     @objc private func goToOrders3Screen() {
-        coordinator?.goToOrder3Screen()
+        coordinator?.goToOrder3Screen(animated: true)
     }
 }

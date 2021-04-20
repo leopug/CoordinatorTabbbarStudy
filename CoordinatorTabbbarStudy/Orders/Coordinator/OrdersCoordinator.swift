@@ -22,13 +22,13 @@ class OrdersCoordinator: OrdersBaseCoordinator {
         return rootViewController
     }
     
-    func goToOrder2Screen() -> Self  {
-        (rootViewController as? UINavigationController)?.pushViewController(Orders2ViewController(coordinator: self), animated: false)
+    func goToOrder2Screen(animated: Bool = false) -> Self  {
+        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: animated)
         return self
     }
     
-    func goToOrder3Screen() -> Self {
-        (rootViewController as? UINavigationController)?.pushViewController(Orders3ViewController(coordinator: self), animated: true)
+    func goToOrder3Screen(animated: Bool = false) -> Self {
+        navigationRootViewController?.pushViewController(Orders3ViewController(coordinator: self), animated: animated)
         return self
     }
     
