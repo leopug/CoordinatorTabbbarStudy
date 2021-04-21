@@ -34,9 +34,6 @@ class HomeCoordinator: HomeBaseCoordinator {
 
     }
     
-    func goToHome2Screen() {
-    }
-    
     func goToFavoritesFlow() {
         parentCoordinator?.moveTo(flow: .Favorites)
     }
