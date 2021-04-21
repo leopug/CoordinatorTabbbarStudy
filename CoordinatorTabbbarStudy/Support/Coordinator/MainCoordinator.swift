@@ -26,11 +26,11 @@ class MainCoordinator: MainBaseCoordinator {
         
         let homeViewController = homeCoordinator.start()
         homeCoordinator.parentCoordinator = self
-        homeViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .mostViewed, tag: 0)
+        homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "homekit"), tag: 0)
         
         let ordersViewController = ordersCoordinator.start()
         ordersCoordinator.parentCoordinator = self
-        ordersViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        ordersViewController.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "doc.plaintext"), tag: 1)
         
         (rootViewController as? UITabBarController)?.viewControllers = [homeViewController,ordersViewController]
                 
@@ -47,7 +47,6 @@ class MainCoordinator: MainBaseCoordinator {
     }
     
     func handleDeepLink(text: String) {
-        print("")
         deepLinkCoordinator.handleDeeplink(deepLink: text)
     }
     

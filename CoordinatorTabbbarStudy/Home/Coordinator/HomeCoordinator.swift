@@ -8,19 +8,10 @@
 import UIKit
 
 class HomeCoordinator: HomeBaseCoordinator {
-    
-    func resetToRoot() -> Self {
-        navigationRootViewController?.popToRootViewController(animated: false)
-        return self
-    }
-    
 
     var parentCoordinator: MainBaseCoordinator?
-    lazy var rootViewController: UIViewController = UIViewController()
-    lazy var navigationViewController: UINavigationController? = {
-        (rootViewController as? UINavigationController)
-    }()
     
+    lazy var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {
         rootViewController = UINavigationController(rootViewController: HomeViewController(coordinator: self))
@@ -31,7 +22,6 @@ class HomeCoordinator: HomeBaseCoordinator {
         let home2ViewController = Home2ViewController(coordinator: self)
         home2ViewController.title = title
         navigationRootViewController?.pushViewController(home2ViewController, animated: true)
-
     }
     
     func goToFavoritesFlow() {
@@ -46,5 +36,10 @@ class HomeCoordinator: HomeBaseCoordinator {
                 .goToOrder2Screen(animated: true)
                 .goToOrder3Screen(animated: true)
         }
+    }
+    
+    func resetToRoot() -> Self {
+        navigationRootViewController?.popToRootViewController(animated: false)
+        return self
     }
 }
