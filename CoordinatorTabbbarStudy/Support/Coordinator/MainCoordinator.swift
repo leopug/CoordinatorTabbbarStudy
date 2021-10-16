@@ -8,8 +8,19 @@
 import UIKit
 
 enum AppFlow {
-    case MostViewed
-    case Favorites
+    case home(HomeScreen)
+    case orders(OrdersScreen)
+}
+
+enum HomeScreen {
+    case initialScreen
+    case doubleButtonScreen
+}
+
+enum OrdersScreen {
+    case firstScreen
+    case secondScreen
+    case thirdScreen
 }
 
 class MainCoordinator: MainBaseCoordinator {
@@ -37,13 +48,25 @@ class MainCoordinator: MainBaseCoordinator {
         return rootViewController
     }
         
-    func moveTo(flow: AppFlow) {
+    func moveTo(flow: AppFlow, userData: [String : Any]?) {
         switch flow {
-        case .MostViewed:
-            (rootViewController as? UITabBarController)?.selectedIndex = 0
-        case .Favorites:
-            (rootViewController as? UITabBarController)?.selectedIndex = 1 
+        case .home:
+            goToHomeFlow(flow)
+        case .orders:
+            goToOrdersFlow(flow)
         }
+    }
+    
+    private func goToOrdersFlow(_ flow: AppFlow) {
+        ordersCoordinator.moveTo(flow: flow, userData: nil)
+        (rootViewController as? UITabBarController)?.selectedIndex = 1
+        
+    }
+    
+    private func goToHomeFlow(_ flow: AppFlow) {
+        homeCoordinator.moveTo(flow: flow, userData: nil)
+        (rootViewController as? UITabBarController)?.selectedIndex = 0
+        
     }
     
     func handleDeepLink(text: String) {
@@ -52,7 +75,7 @@ class MainCoordinator: MainBaseCoordinator {
     
     func resetToRoot() -> Self {
         homeCoordinator.resetToRoot(animated: false)
-        moveTo(flow: .MostViewed)
+        moveTo(flow: .home(.initialScreen), userData: nil)
         return self
     }
     

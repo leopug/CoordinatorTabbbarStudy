@@ -54,11 +54,11 @@ class Home2ViewController: UIViewController, HomeBaseCoordinated {
         view.addSubview(goToFavoriteDeepViewButton)
         goToFavoriteDeepViewButton.translatesAutoresizingMaskIntoConstraints = false
         
-        goToFavoriteDeepViewButton.setTitle(" Go to deep view in favorite tab ", for: .normal)
+        goToFavoriteDeepViewButton.setTitle(" Go to deep view in Orders tab ", for: .normal)
         goToFavoriteDeepViewButton.layer.borderColor = UIColor.black.cgColor
         goToFavoriteDeepViewButton.layer.borderWidth = 2
         goToFavoriteDeepViewButton.backgroundColor = .red
-        goToFavoriteDeepViewButton.addTarget(self, action: #selector(goToDeepViewInFavoriteTab), for: .touchUpInside)
+        goToFavoriteDeepViewButton.addTarget(self, action: #selector(goToDeepViewInOrdersTab), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             goToFavoriteDeepViewButton.topAnchor.constraint(equalTo: goToFavoriteButton.bottomAnchor, constant: 20),
@@ -67,10 +67,10 @@ class Home2ViewController: UIViewController, HomeBaseCoordinated {
     }
     
     @objc private func goToFavoriteTab() {
-        coordinator?.parentCoordinator?.moveTo(flow: .Favorites)
+        coordinator?.moveTo(flow: .orders(.firstScreen), userData: nil)
     }
     
-    @objc private func goToDeepViewInFavoriteTab() {
-        coordinator?.goToDeepViewInFavoriteTab()
+    @objc private func goToDeepViewInOrdersTab() {
+        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
     }
 }

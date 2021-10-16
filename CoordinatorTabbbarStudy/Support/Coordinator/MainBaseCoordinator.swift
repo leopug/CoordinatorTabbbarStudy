@@ -11,7 +11,6 @@ protocol MainBaseCoordinator: Coordinator {
     var homeCoordinator: HomeBaseCoordinator { get }
     var ordersCoordinator: OrdersBaseCoordinator { get }
     var deepLinkCoordinator: DeepLinkBaseCoordinator { get }
-    func moveTo(flow: AppFlow)
     func handleDeepLink(text: String)
 }
 

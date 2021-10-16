@@ -8,8 +8,4 @@
 import UIKit
 
 
-protocol HomeBaseCoordinator: Coordinator {
-    func goToHome2ScreenWith(title: String)
-    func goToFavoritesFlow()
-    func goToDeepViewInFavoriteTab()
-}
+protocol HomeBaseCoordinator: Coordinator {}

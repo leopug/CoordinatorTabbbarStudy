@@ -47,6 +47,6 @@ class HomeViewController: UIViewController, HomeBaseCoordinated {
     }
     
     @objc private func goToHome2() {
-        coordinator?.goToHome2ScreenWith(title: "Top Title")
+        coordinator?.moveTo(flow: .home(.doubleButtonScreen), userData: ["title": "Top Title"])
     }
 }

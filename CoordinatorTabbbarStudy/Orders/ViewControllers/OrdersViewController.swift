@@ -38,7 +38,7 @@ class OrdersViewController: UIViewController, OrdersBaseCoordinated {
         goToOrders2button.layer.borderColor = UIColor.black.cgColor
         goToOrders2button.layer.borderWidth = 2
         goToOrders2button.backgroundColor = .black
-        goToOrders2button.addTarget(self, action: #selector(goToHome2), for: .touchUpInside)
+        goToOrders2button.addTarget(self, action: #selector(goToOrders2), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             goToOrders2button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -46,7 +46,7 @@ class OrdersViewController: UIViewController, OrdersBaseCoordinated {
         ])
     }
     
-    @objc private func goToHome2() {
-        coordinator?.goToOrder2Screen(animated: true)
+    @objc private func goToOrders2() {
+        coordinator?.moveTo(flow: .orders(.secondScreen), userData: nil)
     }
 }

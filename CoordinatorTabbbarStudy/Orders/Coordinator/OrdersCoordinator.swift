@@ -18,16 +18,40 @@ class OrdersCoordinator: OrdersBaseCoordinator {
         return rootViewController
     }
     
-    func goToOrder2Screen(animated: Bool = false) -> Self  {
-        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: animated)
-        return self
+    func moveTo(flow: AppFlow, userData: [String : Any]? = nil) {
+        switch flow {
+        case .orders(let screen):
+            handleOrdersFlow(for: screen, userData: userData)
+        default:
+            parentCoordinator?.moveTo(flow: flow, userData: userData)
+        }
     }
     
-    func goToOrder3Screen(animated: Bool = false) -> Self {
-        navigationRootViewController?.pushViewController(Orders3ViewController(coordinator: self), animated: animated)
-        return self
+    private func handleOrdersFlow(for screen: OrdersScreen, userData: [String : Any]? = nil) {
+        switch screen {
+        case .firstScreen:
+            resetToRoot(animated: false)
+        case .secondScreen:
+            handleGoToSecondScreen()
+        case .thirdScreen:
+            handleGoToThirdScreen()
+        }
     }
     
+    private func handleGoToSecondScreen() {
+        resetToRoot(animated: false)
+        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: false)
+
+    }
+    
+    private func handleGoToThirdScreen() {
+        resetToRoot(animated: false)
+        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: false)
+        navigationRootViewController?.pushViewController(Orders3ViewController(coordinator: self), animated: false)
+
+    }
+   
+    @discardableResult
     func resetToRoot(animated: Bool) -> Self {
         navigationRootViewController?.popToRootViewController(animated: animated)
         return self
