@@ -14,7 +14,7 @@ protocol FlowCoordinator: AnyObject {
 protocol Coordinator: FlowCoordinator {
     var rootViewController: UIViewController { get set }
     func start() -> UIViewController
-    @discardableResult func resetToRoot() -> Self
+    @discardableResult func resetToRoot(animated: Bool) -> Self
 }
 
 extension Coordinator {
@@ -24,8 +24,8 @@ extension Coordinator {
         }
     }
     
-    func resetToRoot() -> Self {
-        navigationRootViewController?.popToRootViewController(animated: false)
+    func resetToRoot(animated: Bool) -> Self {
+        navigationRootViewController?.popToRootViewController(animated: animated)
         return self
     }
 }

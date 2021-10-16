@@ -9,7 +9,7 @@ import UIKit
 
 class Orders3ViewController: UIViewController, OrdersBaseCoordinated {
     
-    weak var coordinator: OrdersBaseCoordinator?
+    var coordinator: OrdersBaseCoordinator?
     
     init(coordinator: OrdersBaseCoordinator) {
         super.init(nibName: nil, bundle: nil)

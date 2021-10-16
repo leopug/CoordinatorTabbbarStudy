@@ -28,5 +28,8 @@ class OrdersCoordinator: OrdersBaseCoordinator {
         return self
     }
     
-    
+    func resetToRoot(animated: Bool) -> Self {
+        navigationRootViewController?.popToRootViewController(animated: animated)
+        return self
+    }
 }

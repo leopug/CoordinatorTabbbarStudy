@@ -51,7 +51,7 @@ class MainCoordinator: MainBaseCoordinator {
     }
     
     func resetToRoot() -> Self {
-        homeCoordinator.resetToRoot()
+        homeCoordinator.resetToRoot(animated: false)
         moveTo(flow: .MostViewed)
         return self
     }

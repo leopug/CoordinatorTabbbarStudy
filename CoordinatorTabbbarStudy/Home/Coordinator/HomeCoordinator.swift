@@ -30,12 +30,19 @@ class HomeCoordinator: HomeBaseCoordinator {
     
     func goToDeepViewInFavoriteTab() {
         parentCoordinator?.moveTo(flow: .Favorites)
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) { [weak self] in
-            self?.parentCoordinator?.ordersCoordinator
-                .resetToRoot()
-                .goToOrder2Screen(animated: true)
-                .goToOrder3Screen(animated: true)
-        }
+//        if let orderCoordinator = parentCoordinator?.ordersCoordinator,  orderCoordinator.navigationRootViewController?.viewControllers.last is Orders3ViewController {
+//            parentCoordinator?.moveTo(flow: .Favorites)
+//        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+                self?.parentCoordinator?.ordersCoordinator
+                    .resetToRoot(animated: false)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) { [weak self] in
+                self?.parentCoordinator?.ordersCoordinator
+                    .goToOrder2Screen(animated: false)
+                    .goToOrder3Screen(animated: false)
+            }
+        
     }
     
     func resetToRoot() -> Self {

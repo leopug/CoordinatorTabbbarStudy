@@ -9,7 +9,7 @@ import UIKit
 
 class Orders2ViewController: UIViewController, OrdersBaseCoordinated {
     
-    weak var coordinator: OrdersBaseCoordinator?
+    var coordinator: OrdersBaseCoordinator?
     var goToOrders3button: UIButton!
     
     init(coordinator: OrdersBaseCoordinator) {

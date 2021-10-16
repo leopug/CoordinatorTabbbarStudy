@@ -21,5 +21,4 @@ protocol HomeBaseCoordinated {
 
 protocol OrdersBaseCoordinated {
     var coordinator: OrdersBaseCoordinator? { get }
-
 }
