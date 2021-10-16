@@ -9,10 +9,6 @@ import UIKit
 
 class OrdersCoordinator: OrdersBaseCoordinator {
     
-    func goToPendingOrdersScreen() {
-        print("go to pending orders screen")
-    }
-    
     var parentCoordinator: MainBaseCoordinator?
     
     var rootViewController: UIViewController = UIViewController()
